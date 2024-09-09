@@ -13,22 +13,17 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Author {
+public class Section {
     @Id
     @GeneratedValue
     private Integer id;
-    private String firstName;
-    private String lastName;
-    @Column(
-            unique = true,
-            nullable = false
-    )
-    private String email;
-    private Integer age;
+    private String name;
+    private Integer sectionOrder;
 
-    @ManyToMany(mappedBy = "authors")
-    private List<Course> courses;
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private Course course;
+
+    @OneToMany(mappedBy = "section")
+    private List<Lecture> lectures;
 }
-
-
-
