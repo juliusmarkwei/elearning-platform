@@ -46,13 +46,11 @@ public class JpaApplication {
 //            authorRepository.updateAuthor(22, 1);
 
             //update Author a set a.age = :age
-            authorRepository.updateAllAuthorsAges(99);
+//            authorRepository.updateAllAuthorsAges(99);
 
-           /*var video = Video.builder()
-                    .name("abc")
-                    .length(5)
-                    .build();
-            videoRepository.save(video);*/
+            //find by named query
+            authorRepository.findByNamedQuery(40)
+                    .forEach(System.out::println);
         };
     }
 
